@@ -50,6 +50,19 @@ class POSTagger extends StanfordTagger {
     }
 
     /**
+     * Tag from an array of tokens for a sentence
+     *
+     * @param $tokens array tokens
+     *
+     * @return mixed
+     */
+    public function tag($tokens)
+    {
+        $results = $this->batchTag(array($tokens));
+        return isset($results) ? $results : array();
+    }
+
+    /**
      * Model setter
      *
      * @param $model string path to model file
